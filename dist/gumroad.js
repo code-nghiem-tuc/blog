@@ -14,7 +14,12 @@ var observer = new MutationObserver(function(){
         if (button !== null) {
           console.log("gumroad already loaded");
         } else {
-          const gumroadCode = '<div class="gumroad-wrapper"><a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Ủng hộ tui ly cafe</a></div>';
+          const gumroadCode = `
+          <div class="gumroad-wrapper">        
+            <script src="https://gumroad.com/js/gumroad.js"></script>
+            <a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Ủng hộ tui ly cafe</a>
+          </div>
+          `;
           targetNode.insertAdjacentHTML("beforeend", gumroadCode);
           console.log("loaded gumroad");
         }
