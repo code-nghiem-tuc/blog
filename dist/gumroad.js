@@ -10,6 +10,6 @@ document.addEventListener("DOMContentLoaded", function(){
     content.insertAdjacentHTML("beforeend", gumroadCode);
     console.log("loaded gumroad");
   } else {
-    console.log("not homepage, skip loading gumroad");
+    console.log("this is homepage, skip loading gumroad");
   }
 });
