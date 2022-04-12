@@ -49,4 +49,4 @@ var observer = new MutationObserver(function(){
 });
 
 // watch for change of 'height'
-observer.observe(targetNode, { attributes: true, attributeFilter: ["height"] });
+observer.observe(targetNode, { attributes: true, attributeFilter: ["height"], childList: true });
