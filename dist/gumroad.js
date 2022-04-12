@@ -8,15 +8,17 @@ var observer = new MutationObserver(function(){
     if(targetNode.style.display != 'none'){
       console.log("content display detected");
       
+      // delete previously added button to avoid duplicate
+      const button = document.querySelector(".gumroad-button");
+      if (button !== null) {
+        button.remove();
+        console.log("removed existing gumroad");
+      }
+      
       if ( window.location.pathname !== '/' ) { // if not home page
-        const button = document.querySelector(".gumroad-button");
-        if (button !== null) {
-          console.log("gumroad already loaded, do nothing");
-        } else {
-          const gumroadCode = '<a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Tặng mình ly nước</a>';
-          targetNode.insertAdjacentHTML("beforeend", gumroadCode);
-          console.log("loaded gumroad");
-        }
+        const gumroadCode = '<a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Tặng mình ly nước</a>';
+        targetNode.insertAdjacentHTML("beforeend", gumroadCode);
+        console.log("loaded gumroad");
       } else {
         console.log("this is homepage, skip loading gumroad");
       }
