@@ -11,11 +11,11 @@ var observer = new MutationObserver(function(){
       if ( window.location.pathname !== '/' ) { // if not home page
         const button = document.querySelector(".gumroad-button");
         if (button !== null) {
+          console.log("gumroad already loaded, do nothing");
+        } else {
           const gumroadCode = '<a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Tặng mình ly nước</a>';
           content.insertAdjacentHTML("beforeend", gumroadCode);
           console.log("loaded gumroad");
-        } else {
-          console.log("gumroad already loaded, do nothing");
         }
       } else {
         console.log("this is homepage, skip loading gumroad");
