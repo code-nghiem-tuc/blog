@@ -16,7 +16,6 @@ var observer = new MutationObserver(function(){
         } else {
           const gumroadCode = `
           <div class="gumroad-wrapper">        
-            <script src="https://gumroad.com/js/gumroad.js"></script>
             <a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Ủng hộ tui ly cafe</a>
           </div>
           `;
