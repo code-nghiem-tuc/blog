@@ -1,8 +1,8 @@
-func isHomePage() {
+function isHomePage() {
   return window.location.pathname == '/';
 }
 
-func loadGumroad() {
+function loadGumroad() {
   // delete previously added button to avoid duplicate
   const button = document.querySelector(".gumroad-wrapper");
   if (button !== null) {
@@ -19,7 +19,7 @@ func loadGumroad() {
   console.log("loaded gumroad");
 }
 
-func unloadGumroad() {
+function unloadGumroad() {
   // delete previously added button
   const button = document.querySelector(".gumroad-wrapper");
   if (button !== null) {
