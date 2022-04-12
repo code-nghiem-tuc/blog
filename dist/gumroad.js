@@ -10,17 +10,17 @@ var observer = new MutationObserver(function(){
       
       if ( window.location.pathname !== '/' ) { // if not home page
         // delete previously added button to avoid duplicate
-        const button = document.querySelector(".gumroad-button");
+        const button = document.querySelector(".gumroad-wrapper");
         if (button !== null) {
           console.log("gumroad already loaded");
         } else {
-          const gumroadCode = '<a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Tặng mình ly nước</a>';
+          const gumroadCode = '<div class="gumroad-wrapper"><a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Ủng hộ tui ly cafe</a></div>';
           targetNode.insertAdjacentHTML("beforeend", gumroadCode);
           console.log("loaded gumroad");
         }
       } else {
         // delete previously added button
-        const button = document.querySelector(".gumroad-button");
+        const button = document.querySelector(".gumroad-wrapper");
         if (button !== null) {
           button.remove();
           console.log("removed existing gumroad");
