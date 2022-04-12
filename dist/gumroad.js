@@ -14,7 +14,7 @@ var observer = new MutationObserver(function(){
           console.log("gumroad already loaded, do nothing");
         } else {
           const gumroadCode = '<a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Tặng mình ly nước</a>';
-          content.insertAdjacentHTML("beforeend", gumroadCode);
+          targetNode.insertAdjacentHTML("beforeend", gumroadCode);
           console.log("loaded gumroad");
         }
       } else {
