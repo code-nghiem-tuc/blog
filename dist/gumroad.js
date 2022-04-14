@@ -12,6 +12,8 @@ function loadGumroad() {
   
   const gumroadCode = `
   <div class="gumroad-wrapper">
+    <hr>
+  
     <div class="donate-container">
       <div class="spacer"></div>
       <div class="donate-content">
