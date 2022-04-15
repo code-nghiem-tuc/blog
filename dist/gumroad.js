@@ -18,7 +18,7 @@ function loadGumroad() {
       <div class="spacer"></div>
       <div class="donate-content">
         <div>
-          <h1>Ủng hộ tui ly cafe</h1>
+          <h1>Ủng hộ mình ly cafe</h1>
         </div>
         <div>
           <a class="gumroad-button" href="https://codenghiemtuc.gumroad.com/l/buy-me-a-drink">Ủng hộ qua </a>
