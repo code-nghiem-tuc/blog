@@ -12,7 +12,11 @@ function loadGumroad() {
   
   const gumroadCode = `
   <div class="gumroad-wrapper">
-    <hr>
+    <div class="separator-wrapper">
+        <div class="gumroad-half-separator"></div>
+        <p style="text-align: center;">👨🏻&zwj;💻👩🏼&zwj;💻</p>
+        <div class="gumroad-half-separator"></div>
+    </div>
   
     <div class="donate-container">
       <div class="spacer"></div>
