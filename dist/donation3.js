@@ -1,3 +1,7 @@
+window.onload = function() {
+  console.log("ha!")
+}
+
 function loadDonationBox(targetNode) {
   // delete previously added button to avoid duplicate
   const button = document.querySelector(".gumroad-wrapper");
