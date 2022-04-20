@@ -55,6 +55,7 @@ function contentWrapperMutationHandler() {
   if(targetNode !== null) {
     targetNode.style.display = "none";
     loadDonationBox(targetNode);
+    observer.disconnect();
   } else {
     console.warn("cannot find anywhere to load donation box element");
     unloadDonationBox();
