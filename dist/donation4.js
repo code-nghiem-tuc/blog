@@ -1,7 +1,3 @@
-window.onload = function() {
-  console.log("ha!")
-}
-
 function loadDonationBox(targetNode) {
   // delete previously added button to avoid duplicate
   const button = document.querySelector(".gumroad-wrapper");
@@ -73,3 +69,7 @@ if(contentWrapper !== null) {
 } else {
   console.warn("cannot find content wrapper");
 }
+
+// when sub-url is refreshed, MutationObserver doesn't work
+// so we fallback to this
+window.onload = contentWrapperMutationHandler;
