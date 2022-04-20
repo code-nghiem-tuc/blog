@@ -1,4 +1,4 @@
-function loadDonationBox() {
+function loadDonationBox(targetNode) {
   // delete previously added button to avoid duplicate
   const button = document.querySelector(".gumroad-wrapper");
   if (button !== null) {
@@ -44,7 +44,7 @@ function unloadDonationBox() {
 }
 
 function contentWrapperMutationHandler() {
-  var targetNode = null;
+  let targetNode = null;
   for (const div of document.querySelectorAll("div.notion-text")) {
     if (div.textContent.includes("🏳")) {
       targetNode = div;
@@ -54,7 +54,7 @@ function contentWrapperMutationHandler() {
 
   if(targetNode !== null) {
     targetNode.style.display = "none";
-    loadDonationBox();
+    loadDonationBox(targetNode);
   } else {
     console.warn("cannot find anywhere to load donation box element");
     unloadDonationBox();
