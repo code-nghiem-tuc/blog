@@ -1,8 +1,4 @@
-function isHomePage() {
-  return window.location.pathname == '/';
-}
-
-function loadGumroad() {
+function loadDonationBox(targetNode) {
   // delete previously added button to avoid duplicate
   const button = document.querySelector(".gumroad-wrapper");
   if (button !== null) {
@@ -34,37 +30,46 @@ function loadGumroad() {
     </div>
   </div>
   `;
-  targetNode.insertAdjacentHTML("beforeend", gumroadCode);
-  console.log("loaded gumroad");
+  targetNode.insertAdjacentHTML("afterend", gumroadCode);
+  console.log("loaded donation box");
 }
 
-function unloadGumroad() {
+function unloadDonationBox() {
   // delete previously added button
   const button = document.querySelector(".gumroad-wrapper");
   if (button !== null) {
     button.remove();
-    console.log("removed existing gumroad");
+    console.log("removed existing donation box");
   }
 }
 
-var targetNode = document.querySelector('.super-content');
-if (targetNode == null) {
-  console.warn("cannot find Super's content element, fallback to body");
-  targetNode = document.body;
-}
-
-// first, let's load if this is not home page
-if (!isHomePage()) {
-  loadGumroad();
-}
-
-var observer = new MutationObserver(function(){
-    if (!isHomePage()) {
-      loadGumroad();
-    } else {
-      unloadGumroad();
-      console.log("this is homepage, skip loading gumroad");
+function contentWrapperMutationHandler() {
+  let targetNode = null;
+  for (const div of document.querySelectorAll("div.notion-text")) {
+    if (div.textContent.includes("🏳")) {
+      targetNode = div;
+      break;
     }
-});
+  }
 
-observer.observe(targetNode, { attributes: true, childList: true });
+  if(targetNode !== null) {
+    targetNode.style.display = "none";
+    loadDonationBox(targetNode);
+    observer.disconnect();
+  } else {
+    console.warn("cannot find anywhere to load donation box element");
+    unloadDonationBox();
+  }
+}
+
+var contentWrapper = document.querySelector('.super-content');
+if(contentWrapper !== null) { 
+  var observer = new MutationObserver(contentWrapperMutationHandler);
+  observer.observe(contentWrapper, { attributes: true, childList: true });
+} else {
+  console.warn("cannot find content wrapper");
+}
+
+// when sub-url is refreshed, MutationObserver doesn't work
+// so we fallback to this
+window.onload = contentWrapperMutationHandler;
